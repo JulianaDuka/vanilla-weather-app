@@ -1,3 +1,7 @@
-img {
-    size: 4 px;
+.vanilla-app {
+   max-width: 600px;
+   margin: 30px auto;
+   padding: 20px;
+   border: 1px solid #daddel;
+   border-radius: 5px;
 }
