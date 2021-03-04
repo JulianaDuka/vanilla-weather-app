@@ -72,19 +72,17 @@ function dispalyForecast(response) {
 
     for (let index = 0; index < 6; index++) {
      forecast = response.data.list[index];
-     forecastElement.innerHTML += `
-    <div class="col-2">
-      <h3>
-        ${formatHours(forecast.dt * 1000)}
-      </h3>
+     forecastElement.innerHTML += `<div class="col-md-2 weather-forecast-items border p-2 mt-2 rounded shadow">
+      <h1>
+        <strong>${formatHours(forecast.dt * 1000)}</strong>
+      </h1>
       <img
-        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-      <div class="weather-forecast-temperature">
-        <strong>
-          ${Math.round(forecast.main.temp_max)}°
-        </strong>
-        ${Math.round(forecast.main.temp_min)}°
-      </div>
+        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt=""/>
+       <h2>
+      <strong><span class="weather-forecast-temperature">${Math.round(forecast.main.temp_max)}></span>°</strong>
+      
+        <span ${Math.round(forecast.main.temp_min)}></span>°
+      </h2>
     </div>
     `;
   }
