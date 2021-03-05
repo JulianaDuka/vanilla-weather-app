@@ -9,13 +9,14 @@ function formatDate (timestamp){
         minutes = '0${minutes}';
     }
     let days = [
+        "Sunday",
         "Monday",
         "Tuesday",
         "Wednesday",
         "Thursday",
         "Friday",
         "Saturday",
-        "Sunday"
+        
     ];
     let day = days[date.getDate()];
     return `${day} ${formatHours(timestamp)}`;
@@ -60,7 +61,7 @@ function displayTemperature (response) {
     celsiusTemperature = response.data.main.temp;
 
     iconElement.setAttribute(
-        "src", "https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png");
+        "src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     
     iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -80,7 +81,7 @@ function dispalyForecast(response) {
         src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt=""/>
        <h2>
       <strong><span class="weather-forecast-temperature">${Math.round(forecast.main.temp_max)}></span>°</strong>
-      
+
         <span ${Math.round(forecast.main.temp_min)}></span>°
       </h2>
     </div>
@@ -131,7 +132,8 @@ function displayCelsiusTemperature(event){
     let form = document.querySelector("#search-form");
     form.addEventListener("submit", handleSubmit);
 
-    let fahrenheitLink = document.querySelector("#farenheit-link");
+    
+    let fahrenheitLink = document.querySelector("#fahrenheit-link");
     fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
     let celsiusLink = document.querySelector("#celsius-link");
